@@ -1,10 +1,10 @@
 package example
 
 import (
-	cozgo "github.com/urjitbhatia/coz-go"
+	"github.com/urjitbhatia/cozgo"
 )
 
-func sampledRun() {
+func sampleRun() {
 	cozgo.Begin("mainstart")
 	defer cozgo.End("mainstart")
 	for i := 0; i < 1000; i++ {
