@@ -17,7 +17,7 @@ Blog: https://morsmachine.dk/causalprof
   - 'apt update; apt install coz-profiler'
 - Import `cozgo`: `import "github.com/urjitbhatia/cozgo"`
 - Call the `Coz` wrappers in your application
-- Build your `go` binary with the flags: `-ldflags=-compressdwarf=false` so that Coz can identify the debug symbols properly
+- Build your `go` binary with the flags: `-ldflags=-compressdwarf=false -gcflags=all="-N -l"` so that Coz can identify the debug symbols properly
 - Run your application with Coz: `coz run --- yourGoBinary`
 - Let the application run for a while (you might want to run some load test etc, so that the profiler can pick up usage data)
 - By default, Coz will create a file called `profile.coz`
