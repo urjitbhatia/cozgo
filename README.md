@@ -11,7 +11,7 @@ This is a golang wrapper around the `Coz` profiler here: https://github.com/plas
 | COZ_BEGIN("name")   | cozgo.Begin("name")   | Begin a latency profiling block identified by the name |
 | COZ_END("name")     | cozgo.End("name")     | End a latency profiling block identified by the name|
 | COZ_PROGRESS()     | cozgo.Progress()     | Specify a progress point within a block of work|
-| COZ_PROGRESS()     | cozgo.ProgressNamed("name")     | Specify a named progress point within a block of work|
+| COZ_PROGRESS()     | cozgo.NamedProgress("name")     | Specify a named progress point within a block of work|
 
 ## For background on causal profiling, see
 
