@@ -2,21 +2,29 @@ package cozgo
 
 //#cgo LDFLAGS: -ldl
 //#include <cozgo.h>
+//#include <stdlib.h>
 import "C"
+import "unsafe"
 
 //Begin tells Coz-Profiler to begin a profiled transaction
 func Begin(name string) {
-	C.cozBegin(C.CString(name))
+	cname := C.CString(name)
+	defer C.free(unsafe.Pointer(cname))
+	C.cozBegin(cname)
 }
 
 //End tells Coz-Profiler to end the profiled transaction
 func End(name string) {
-	C.cozEnd(C.CString(name))
+	cname := C.CString(name)
+	defer C.free(unsafe.Pointer(cname))
+	C.cozEnd(cname)
 }
 
 //NamedProgress marks a named progress checkpoint in the span of a profiled transaction
 func NamedProgress(name string) {
-	C.cozProgressNamed(C.CString(name))
+	cname := C.CString(name)
+	defer C.free(unsafe.Pointer(cname))
+	C.cozProgressNamed(cname)
 }
 
 //Progress marks an anonymous progress checkpoint in the span of a profiled transaction.
